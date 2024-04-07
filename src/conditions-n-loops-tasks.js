@@ -123,47 +123,33 @@ function isIsoscelesTriangle(a, b, c) {
  *  10  => X
  *  26  => XXVI
  */
-function convertToRomanNumerals(/* num */) {
-  throw new Error('Not implemented');
-  // const digits = String(+num).split('');
-  // const key = [
-  //   '',
-  //   'C',
-  //   'CC',
-  //   'CCC',
-  //   'CD',
-  //   'D',
-  //   'DC',
-  //   'DCC',
-  //   'DCCC',
-  //   'CM',
-  //   '',
-  //   'X',
-  //   'XX',
-  //   'XXX',
-  //   'XL',
-  //   'L',
-  //   'LX',
-  //   'LXX',
-  //   'LXXX',
-  //   'XC',
-  //   '',
-  //   'I',
-  //   'II',
-  //   'III',
-  //   'IV',
-  //   'V',
-  //   'VI',
-  //   'VII',
-  //   'VIII',
-  //   'IX',
-  // ];
-  // let roman = '';
-  // let i = 3;
-  // while ((i -= 1)) {
-  //   roman = (key[+digits.pop() + i * 10] || '') + roman;
-  // }
-  // return Array(+digits.join('') + 1).join('M') + roman;
+function convertToRomanNumerals(num) {
+  const romanNumerals = [
+    { value: 1000, numeral: 'M' },
+    { value: 900, numeral: 'CM' },
+    { value: 500, numeral: 'D' },
+    { value: 400, numeral: 'CD' },
+    { value: 100, numeral: 'C' },
+    { value: 90, numeral: 'XC' },
+    { value: 50, numeral: 'L' },
+    { value: 40, numeral: 'XL' },
+    { value: 10, numeral: 'X' },
+    { value: 9, numeral: 'IX' },
+    { value: 5, numeral: 'V' },
+    { value: 4, numeral: 'IV' },
+    { value: 1, numeral: 'I' },
+  ];
+
+  let romanNumeral = '';
+
+  let arabicNumber = num;
+  for (let i = 0; i < romanNumerals.length; i += 1) {
+    while (arabicNumber >= romanNumerals[i].value) {
+      romanNumeral += romanNumerals[i].numeral;
+      arabicNumber -= romanNumerals[i].value;
+    }
+  }
+  return romanNumeral;
 }
 
 /**
@@ -215,8 +201,13 @@ function isPalindrome(/* str */) {
  *  'qwerty', 'Q'     => -1
  *  'qwerty', 'p'     => -1
  */
-function getIndexOf(/* str, letter */) {
-  throw new Error('Not implemented');
+function getIndexOf(str, letter) {
+  for (let i = 0; i < str.length; i += 1) {
+    if (letter === str[i]) {
+      return i;
+    }
+  }
+  return -1;
 }
 
 /**

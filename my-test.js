@@ -1,23 +1,26 @@
-function isIsoscelesTriangle(a, b, c) {
-  if (a + b <= c || b + c <= a || a + c <= b) {
-    console.log('2');
+function getIndexOf(str, letter) {
+  // let index = -1;
 
-    return false;
+  for (let i = 0; i < str.length; i += 1) {
+    // console.log(`str[${i}]:`, str[i]);
+    if (letter === str[i]) {
+      // console.log(`letter ${letter} == current ${str[i]}`);
+      // console.log('index', index);
+      // index = i;
+      // console.log('index', index);
+      // return index;
+      return i;
+      // } else {
+      //   // console.log(`letter ${letter} !== current ${str[i]}`);
+    }
   }
-  if (a === b || a === c || (b === c && a > 0 && b > 0 && c > 0)) {
-    console.log('1');
-    return true;
-  }
-  console.log('3');
+  // console.log('index', index);
 
-  return false;
+  return -1;
 }
 
-console.log(isIsoscelesTriangle(2, 2, 2));
-console.log(isIsoscelesTriangle(2, 2, 3));
-console.log(isIsoscelesTriangle(3, 2, 3));
-
-console.log(isIsoscelesTriangle(3, 2, 4));
-
-console.log(isIsoscelesTriangle(2, 2, 4));
-console.log(isIsoscelesTriangle(5, 2, 2));
+console.log(getIndexOf('qwerty', 'q')); // 0
+console.log(getIndexOf('qwerty', 'e')); // 2
+console.log(getIndexOf('qwerty', 'Q')); // -1
+console.log(getIndexOf('qwerty', 'p')); // -1
+console.log(getIndexOf('qwerty', 't')); //  4
