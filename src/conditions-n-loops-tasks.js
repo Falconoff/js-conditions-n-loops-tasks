@@ -167,8 +167,60 @@ function convertToRomanNumerals(num) {
  *  '10,5'    => 'one zero point five'
  *  '1950.2'  => 'one nine five zero point two'
  */
-function convertNumberToString(/* numberStr */) {
-  throw new Error('Not implemented');
+function convertNumberToString(str) {
+  let rezString = '';
+  for (let i = 0; i < str.length; i += 1) {
+    switch (str[i]) {
+      case '1':
+        rezString += 'one';
+        break;
+      case '2':
+        rezString += 'two';
+        break;
+      case '3':
+        rezString += 'three';
+        break;
+      case '4':
+        rezString += 'four';
+        break;
+      case '5':
+        rezString += 'five';
+        break;
+      case '6':
+        rezString += 'six';
+        break;
+      case '7':
+        rezString += 'seven';
+        break;
+      case '8':
+        rezString += 'eight';
+        break;
+      case '9':
+        rezString += 'nine';
+        break;
+      case '0':
+        rezString += 'zero';
+        break;
+      case '-':
+        rezString += 'minus';
+        break;
+      case '.':
+        rezString += 'point';
+        break;
+      case ',':
+        rezString += 'point';
+        break;
+
+      default:
+        rezString += '@';
+        break;
+    }
+
+    if (i < str.length - 1) {
+      rezString += ' ';
+    }
+  }
+  return rezString;
 }
 
 /**
@@ -230,8 +282,15 @@ function getIndexOf(str, letter) {
  *  12345, 0    => false
  *  12345, 6    => false
  */
-function isContainNumber(/* num, digit */) {
-  throw new Error('Not implemented');
+function isContainNumber(num, digit) {
+  const numToString = String(num);
+  const digitToString = String(digit);
+  for (let i = 0; i < numToString.length; i += 1) {
+    if (numToString[i] === digitToString) {
+      return true;
+    }
+  }
+  return false;
 }
 
 /**

@@ -1,16 +1,23 @@
-function convertNumberToString(str) {
-  return true;
+function isContainNumber(num, digit) {
+  const numToString = '' + num;
+  const digitToString = '' + digit;
+
+  const nts = String(num);
+
+  console.log(nts === numToString);
+  // for (let i = 0; i < numToString.length; i += 1) {
+  //   if (numToString[i] === digitToString) {
+  //     return true;
+  //   }
+  // }
+  // return false;
 }
 
-console.log(convertNumberToString('1'));
-// => 'one'
-console.log(convertNumberToString('10'));
-// => 'one zero'
-console.log(convertNumberToString('-10'));
-// => 'minus one zero'
-console.log(convertNumberToString('10.5'));
-// => 'one zero point five'
-console.log(convertNumberToString('10,5'));
-// => 'one zero point five'
-console.log(convertNumberToString('1950.2'));
-// => 'one nine five zero point two'
+console.log(isContainNumber(123450, 0));
+// => true
+console.log(isContainNumber(123450, 1));
+// => true
+console.log(isContainNumber(123450, 3));
+// => true
+console.log(isContainNumber(123450, 7));
+// false
